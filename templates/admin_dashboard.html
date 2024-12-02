@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Admin Dashboard</h1>
+        <p>Total Users: {{ total_users }}</p>
+        <p>Total Campaigns: {{ total_campaigns }}</p>
+        <p>Total Ad Requests: {{ total_ad_requests }}</p>
+        <h2>Flagged Users</h2>
+        <ul>
+            {% for user in flagged_users %}
+            <li>{{ user.username }}</li>
+            {% endfor %}
+        </ul>
+        <h2>Flagged Campaigns</h2>
+        <ul>
+            {% for campaign in flagged_campaigns %}
+            <li>{{ campaign.name }}</li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

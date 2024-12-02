@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Influencer Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Influencer Dashboard</h1>
+        <h2>Your Ad Requests</h2>
+        <ul>
+            {% for ad_request in ad_requests %}
+                <li>
+                    Ad Request #{{ ad_request.id }} - Status: {{ ad_request.status }}
+                    <a href="{{ url_for('negotiate_ad_request', ad_request_id=ad_request.id) }}">Negotiate</a>
+                    <a href="{{ url_for('accept_ad_request', ad_request_id=ad_request.id) }}">Accept</a>
+                    <a href="{{ url_for('reject_ad_request', ad_request_id=ad_request.id) }}">Reject</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('logout') }}" class="btn btn-primary">Logout</a>
+    </div>
+</body>
+</html>
